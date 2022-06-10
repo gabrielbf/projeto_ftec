@@ -1,0 +1,129 @@
+basePath: /
+definitions:
+  request.CreateSample:
+    properties:
+      reference_uuid:
+        description: UUID sent by client and used as a client generated id. It will
+          be the external reference for the requested sample.
+        example: 6fe2d9d5-687d-47da-aaf2-a31d88aa70ca
+        type: string
+    required:
+    - reference_uuid
+    type: object
+  response.Error:
+    properties:
+      detail:
+        type: string
+      invalid_params:
+        items:
+          $ref: '#/definitions/response.InvalidParam'
+        type: array
+      status:
+        type: integer
+      title:
+        type: string
+      type:
+        type: string
+    type: object
+  response.InvalidParam:
+    properties:
+      name:
+        type: string
+      reason:
+        type: string
+    type: object
+  response.Sample:
+    properties:
+      created_at:
+        description: Date time when the sample ressource was saved
+        example: "2022-01-01T00:00:00Z"
+        type: string
+      deleted_at:
+        description: Date time when the sample ressource was deleted
+        example: "null"
+        type: string
+        x-nullable: true
+      reference_uuid:
+        description: UUID sent by client and used as a client generated id. It will
+          be the external reference for the requested sample.
+        example: 2e9948d6-5b0c-4984-a963-21e3ff0b2e25
+        type: string
+      updated_at:
+        description: Date time when the sample ressource was updated
+        example: "2022-01-01T00:00:00Z"
+        type: string
+    type: object
+host: localhost:3000
+info:
+  contact: {}
+  description: This doc presents the http endpoints that could be used for manage
+    samples.
+  title: Sample Project
+  version: "1.0"
+paths:
+  /samples:
+    post:
+      consumes:
+      - application/json
+      description: Sample Description.
+      parameters:
+      - description: Requested body for Sample Creation
+        in: body
+        name: CreateSample
+        required: true
+        schema:
+          $ref: '#/definitions/request.CreateSample'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Sample request successfully created
+          headers:
+            Location:
+              description: The endpoint location for the created ressource. E.g /samples/da74025d-07cf-4347-8e97-3073e83adc82
+              type: string
+          schema:
+            $ref: '#/definitions/response.Sample'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Error'
+      summary: Request an Sample creation
+      tags:
+      - Sample
+  /v1/samples/:referenceUUID:
+    get:
+      consumes:
+      - application/json
+      description: In this endpoint you can request an sample
+      parameters:
+      - description: Reference
+        in: path
+        name: referenceUUID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Sample requested
+          schema:
+            $ref: '#/definitions/response.Sample'
+        "404":
+          description: Sample not found
+          schema:
+            $ref: '#/definitions/response.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Error'
+      summary: Request an Sample
+      tags:
+      - Sample
+schemes:
+- http
+swagger: "2.0"
