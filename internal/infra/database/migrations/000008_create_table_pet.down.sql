@@ -1,0 +1,3 @@
+ALTER TABLE email DROP CONSTRAINT primary_key
+
+DROP TABLE email
