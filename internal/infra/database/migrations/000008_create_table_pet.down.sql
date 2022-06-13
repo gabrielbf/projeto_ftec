@@ -1,3 +1,4 @@
-ALTER TABLE email DROP CONSTRAINT primary_key
+ALTER TABLE pet DROP CONSTRAINT primary_key
+ALTER TABLE pet DROP CONSTRAING fk_partner
 
-DROP TABLE email
+DROP TABLE pet
