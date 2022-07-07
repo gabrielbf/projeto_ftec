@@ -1,7 +1,9 @@
+package entity
+
 type User struct {
-	id int
+	id        int
 	firstName string
-	lastName string
+	lastName  string
 	accountId int
 	contactId int
 }
