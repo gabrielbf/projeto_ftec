@@ -20,15 +20,13 @@ func NewAccountService(accountRepository account.Repository) account.Service {
 
 func (s accountServiceImpl) CreateAccount(ctx context.Context, createDTO account.CreateDTO) (entity.Account, error) {
 	log.Info().Msg("saving account request")
-	account := entity.Account{
-		ReferenceUUID: createDTO.ReferenceUUID,
-	}
+	account := entity.Account{}
 
-	err := s.accountRepository.Create(ctx, &account)
-	if err != nil {
-		log.Error().Interface("Account", account).Msg("Error when saving account")
-		return entity.Account{}, err
-	}
+	// err := s.accountRepository.Create(ctx, &account)
+	// if err != nil {
+	// 	log.Error().Interface("Account", account).Msg("Error when saving account")
+	// 	return entity.Account{}, err
+	// }
 
 	return account, nil
 }

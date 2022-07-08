@@ -1,12 +1,11 @@
 package handler
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/ftec-project/internal/domain/account"
-	"github.com/ftec-project/internal/infra/constants"
 	"github.com/ftec-project/internal/interface/http/dto/request"
+	"github.com/ftec-project/internal/interface/http/dto/response"
 	"github.com/labstack/echo/v4"
 	"github.com/rs/zerolog/log"
 	"schneider.vip/problem"
@@ -67,7 +66,6 @@ func CreateAccount(accountService account.Service) func(c echo.Context) error {
 		log.Info().Msg("retrieving created account")
 
 		createdAccountResponse.FromAccount(createdAccount)
-		c.Response().Header().Set("Location", fmt.Sprint(constants.AccountRessource, "/", createdAccount.ReferenceUUID))
 		return c.JSON(http.StatusCreated, createdAccountResponse)
 	}
 }
