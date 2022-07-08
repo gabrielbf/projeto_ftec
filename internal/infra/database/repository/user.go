@@ -21,23 +21,7 @@ func NewUserRepository(db *gorm.DB) user.Repository {
 func (r userRepositoryImpl) Create(ctx context.Context, user *entity.User) error {
 	return r.db.
 		WithContext(ctx).
-		Table("users").
+		Table("_user").
 		Create(&user).
-		Error
-}
-
-func (r userRepositoryImpl) Update(ctx context.Context, user *entity.User) error {
-	return r.db.WithContext(ctx).
-		Table("users").
-		Updates(&user).
-		Error
-}
-
-func (r userRepositoryImpl) GetByReferenceUUID(ctx context.Context, user *entity.User, reference string) error {
-	return r.db.
-		WithContext(ctx).
-		Table("users").
-		Where("reference_uuid = ?", reference).
-		First(user).
 		Error
 }

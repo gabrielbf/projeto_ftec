@@ -13,4 +13,5 @@ type Service interface {
 type CreateDTO struct {
 	FirstName string
 	LastName  string
+	AccountID int
 }

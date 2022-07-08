@@ -6,5 +6,7 @@ import (
 
 type User struct {
 	gorm.Model
-	ReferenceUUID string
+	FirstName string
+	LastName  string
+	AccountID int `gorm:"column:account_id"`
 }

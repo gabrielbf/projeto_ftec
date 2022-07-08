@@ -2,6 +2,7 @@ package handler
 
 import (
 	"net/http"
+	"strconv"
 
 	"github.com/ftec-project/internal/domain/user"
 	"github.com/ftec-project/internal/interface/http/dto/request"
@@ -12,7 +13,7 @@ import (
 )
 
 func MakeUserHandler(api *echo.Echo, userService user.Service) {
-	api.POST("/v1/users", CreateUser(userService))
+	api.POST("/v1/accounts/:id/users", CreateUser(userService))
 }
 
 // User godoc
@@ -46,7 +47,10 @@ func CreateUser(userService user.Service) func(c echo.Context) error {
 			return c.JSON(status, prob)
 		}
 
+		accountID, _ := strconv.Atoi(c.Param("id"))
+
 		createDTO := user.CreateDTO{
+			AccountID: accountID,
 			FirstName: createUserRequest.FirstName,
 			LastName:  createUserRequest.LastName,
 		}
