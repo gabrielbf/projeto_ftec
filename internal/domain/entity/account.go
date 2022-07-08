@@ -1,9 +1,9 @@
 package entity
 
 type Account struct {
-	id       int
-	email    string
-	password string
-	status   string
-	_type    string
+	ID       int
+	Email    string
+	Password string
+	Status   string
+	Type     string
 }
