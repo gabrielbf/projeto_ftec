@@ -21,23 +21,7 @@ func NewPartnerRepository(db *gorm.DB) partner.Repository {
 func (r partnerRepositoryImpl) Create(ctx context.Context, partner *entity.Partner) error {
 	return r.db.
 		WithContext(ctx).
-		Table("partners").
+		Table("partner").
 		Create(&partner).
-		Error
-}
-
-func (r partnerRepositoryImpl) Update(ctx context.Context, partner *entity.Partner) error {
-	return r.db.WithContext(ctx).
-		Table("partners").
-		Updates(&partner).
-		Error
-}
-
-func (r partnerRepositoryImpl) GetByReferenceUUID(ctx context.Context, partner *entity.Partner, reference string) error {
-	return r.db.
-		WithContext(ctx).
-		Table("partners").
-		Where("reference_uuid = ?", reference).
-		First(partner).
 		Error
 }

@@ -2,6 +2,7 @@ package handler
 
 import (
 	"net/http"
+	"strconv"
 
 	"github.com/ftec-project/internal/domain/partner"
 	"github.com/ftec-project/internal/interface/http/dto/request"
@@ -12,7 +13,7 @@ import (
 )
 
 func MakePartnerHandler(api *echo.Echo, partnerService partner.Service) {
-	api.POST("/v1/partners", CreatePartner(partnerService))
+	api.POST("/v1/accounts/:id/partners", CreatePartner(partnerService))
 }
 
 // Partner godoc
@@ -46,8 +47,11 @@ func CreatePartner(partnerService partner.Service) func(c echo.Context) error {
 			return c.JSON(status, prob)
 		}
 
+		accountID, _ := strconv.Atoi(c.Param("id"))
+
 		createDTO := partner.CreateDTO{
-			Name: createPartnerRequest.Name,
+			AccountID: accountID,
+			Name:      createPartnerRequest.Name,
 		}
 
 		createdPartner, err := partnerService.CreatePartner(c.Request().Context(), createDTO)

@@ -6,5 +6,6 @@ import (
 
 type Partner struct {
 	gorm.Model
-	ReferenceUUID string
+	AccountID int `gorm:"column:account_id"`
+	Name      string
 }
