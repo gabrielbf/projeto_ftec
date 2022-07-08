@@ -45,12 +45,32 @@ func Init(rootdir string) {
 	}
 
 	sampleRepository := repository.NewSampleRepository(pgService)
+	accountRepository := repository.NewAccountRepository(pgService)
+	userRepository := repository.NewUserRepository(pgService)
+	partnerRepository := repository.NewPartnerRepository(pgService)
 
 	sampleService := service.NewSampleService(
 		sampleRepository,
 	)
 
-	apiService := api.NewService(fmt.Sprintf(":%s", environment.Env.HttpPort), constants.ServiceName, sampleService)
+	accountService := service.NewAccountService(
+		accountRepository,
+	)
+
+	userService := service.NewUserService(
+		userRepository,
+	)
+
+	partnerService := service.NewPartnerService(
+		partnerRepository,
+	)
+
+	apiService := api.NewService(fmt.Sprintf(":%s", environment.Env.HttpPort), constants.ServiceName,
+		sampleService,
+		accountService,
+		userService,
+		partnerService,
+	)
 
 	go func() {
 		if err := apiService.StartServer(); err != nil {
