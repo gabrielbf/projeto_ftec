@@ -8,9 +8,9 @@ import (
 
 type Service interface {
 	CreateUser(ctx context.Context, createDTO CreateDTO) (entity.User, error)
-	GetByReferenceUUID(ctx context.Context, referenceUUID string) (entity.User, error)
 }
 
 type CreateDTO struct {
-	ReferenceUUID string
+	FirstName string
+	LastName  string
 }
