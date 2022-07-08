@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"path/filepath"
 
+	"github.com/ftec-project/internal/app/service"
+	"github.com/ftec-project/internal/infra/constants"
+	"github.com/ftec-project/internal/infra/database"
+	"github.com/ftec-project/internal/infra/database/repository"
+	"github.com/ftec-project/internal/infra/environment"
+	logConfig "github.com/ftec-project/internal/infra/log"
+	api "github.com/ftec-project/internal/interface/http"
 	"github.com/rs/zerolog/log"
-	"github.com/sample-project/internal/app/service"
-	"github.com/sample-project/internal/infra/constants"
-	"github.com/sample-project/internal/infra/database"
-	"github.com/sample-project/internal/infra/database/repository"
-	"github.com/sample-project/internal/infra/environment"
-	logConfig "github.com/sample-project/internal/infra/log"
-	api "github.com/sample-project/internal/interface/http"
 )
 
 type TracerLogger struct {
