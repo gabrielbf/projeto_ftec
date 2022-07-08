@@ -1,4 +1,0 @@
-ALTER TABLE phone DROP CONSTRAINT primary_key
-ALTER TABLE phone DROP CONSTRAINT fk_contact
-
-DROP TABLE phone

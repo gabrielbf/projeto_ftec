@@ -1,4 +1,0 @@
-ALTER TABLE email DROP CONSTRAINT primary_key
-ALTER TABLE email DROP CONSTRAINT fk_contact
-
-DROP TABLE email

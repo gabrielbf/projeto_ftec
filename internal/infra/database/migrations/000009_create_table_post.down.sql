@@ -1,4 +1,0 @@
-ALTER TABLE post DROP CONSTRAINT primary_key
-ALTER TABLE post DROP CONSTRAING fk_pet
-
-DROP TABLE post
