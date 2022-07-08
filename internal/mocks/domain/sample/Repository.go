@@ -5,7 +5,7 @@ package sample
 import (
 	context "context"
 
-	entity "github.com/sample-project/internal/infra/database/entity"
+	entity "github.com/ftec-project/internal/infra/database/entity"
 
 	mock "github.com/stretchr/testify/mock"
 

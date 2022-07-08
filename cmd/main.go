@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/sample-project/internal/app"
+	"github.com/ftec-project/internal/app"
 )
 
 // @title Sample Project

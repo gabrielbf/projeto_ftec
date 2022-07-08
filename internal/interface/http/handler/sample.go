@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/ftec-project/internal/domain/sample"
+	"github.com/ftec-project/internal/infra/constants"
+	"github.com/ftec-project/internal/interface/http/dto/request"
+	"github.com/ftec-project/internal/interface/http/dto/response"
 	"github.com/labstack/echo/v4"
 	"github.com/rs/zerolog/log"
-	"github.com/sample-project/internal/domain/sample"
-	"github.com/sample-project/internal/infra/constants"
-	"github.com/sample-project/internal/interface/http/dto/request"
-	"github.com/sample-project/internal/interface/http/dto/response"
 	"gorm.io/gorm"
 	"schneider.vip/problem"
 )
