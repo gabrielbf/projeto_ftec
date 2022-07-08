@@ -3,8 +3,8 @@ package repository
 import (
 	"context"
 
-	"github.com/sample-project/internal/domain/sample"
-	"github.com/sample-project/internal/infra/database/entity"
+	"github.com/ftec-project/internal/domain/sample"
+	"github.com/ftec-project/internal/infra/database/entity"
 	"gorm.io/gorm"
 )
 

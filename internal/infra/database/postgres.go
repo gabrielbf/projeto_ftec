@@ -4,11 +4,11 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/ftec-project/internal/infra/constants"
 	"github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/database/postgres"
 	_ "github.com/golang-migrate/migrate/v4/source/file"
 	"github.com/lib/pq"
-	"github.com/sample-project/internal/infra/constants"
 
 	sqltrace "gopkg.in/DataDog/dd-trace-go.v1/contrib/database/sql"
 	gormtrace "gopkg.in/DataDog/dd-trace-go.v1/contrib/gorm.io/gorm.v1"

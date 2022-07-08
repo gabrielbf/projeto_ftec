@@ -1,13 +1,13 @@
 package api
 
 import (
-	_ "github.com/sample-project/docs"
+	_ "github.com/ftec-project/docs"
 
 	"github.com/labstack/echo/v4"
 	echoSwagger "github.com/swaggo/echo-swagger"
 
-	"github.com/sample-project/internal/domain/sample"
-	"github.com/sample-project/internal/interface/http/handler"
+	"github.com/ftec-project/internal/domain/sample"
+	"github.com/ftec-project/internal/interface/http/handler"
 )
 
 type serviceImpl struct {

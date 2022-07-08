@@ -3,7 +3,7 @@ package sample
 import (
 	"context"
 
-	"github.com/sample-project/internal/infra/database/entity"
+	"github.com/ftec-project/internal/infra/database/entity"
 )
 
 type Service interface {
