@@ -1,5 +1,5 @@
 create table if not exists contact (
-	id bigserial NOT NULL,
+id bigserial NOT NULL,
 
-  CONSTRAINT primary_key PRIMARY KEY (id)
+CONSTRAINT contact_primary_key PRIMARY KEY (id)
 );

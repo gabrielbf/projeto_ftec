@@ -1,5 +1,4 @@
-ALTER TABLE user DROP CONSTRAINT primary_key
-ALTER TABLE user DROP CONSTRAINT fk_contact
-ALTER TABLE user DROP CONSTRAINT fk_account
-
-DROP TABLE user
+ALTER TABLE _user DROP CONSTRAINT user_primary_key;
+ALTER TABLE _user DROP CONSTRAINT user_fk_contact;
+ALTER TABLE _user DROP CONSTRAINT user_fk_account;
+DROP TABLE _user;

@@ -1,4 +1,3 @@
-ALTER TABLE post DROP CONSTRAINT primary_key
-ALTER TABLE post DROP CONSTRAING fk_pet
-
-DROP TABLE post
+ALTER TABLE post DROP CONSTRAINT post_primary_key;
+ALTER TABLE post DROP CONSTRAINT post_fk_pet;
+DROP TABLE post;

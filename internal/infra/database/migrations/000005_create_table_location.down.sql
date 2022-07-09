@@ -1,3 +1,2 @@
-ALTER TABLE location DROP CONSTRAINT primary_key
-
-DROP TABLE location
+ALTER TABLE location DROP CONSTRAINT location_primary_key;
+drop table location;
