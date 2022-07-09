@@ -9,6 +9,5 @@ type User struct {
 	FirstName string
 	LastName  string
 	AccountID int `gorm:"column:account_id"`
-	ID        int
-	ContactId int
+	ContactID int `gorm:"column:contact_id"`
 }

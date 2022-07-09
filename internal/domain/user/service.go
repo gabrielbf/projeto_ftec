@@ -14,4 +14,5 @@ type CreateDTO struct {
 	FirstName string
 	LastName  string
 	AccountID int
+	ContactID int
 }

@@ -45,6 +45,7 @@ func Init(rootdir string) {
 	}
 
 	sampleRepository := repository.NewSampleRepository(pgService)
+	contactRepository := repository.NewContactRepository(pgService)
 	accountRepository := repository.NewAccountRepository(pgService)
 	userRepository := repository.NewUserRepository(pgService)
 	partnerRepository := repository.NewPartnerRepository(pgService)
@@ -53,8 +54,8 @@ func Init(rootdir string) {
 		sampleRepository,
 	)
 
-	accountService := service.NewAccountService(
-		accountRepository,
+	contactService := service.NewContactService(
+		contactRepository,
 	)
 
 	userService := service.NewUserService(
@@ -63,6 +64,13 @@ func Init(rootdir string) {
 
 	partnerService := service.NewPartnerService(
 		partnerRepository,
+	)
+
+	accountService := service.NewAccountService(
+		accountRepository,
+		contactService,
+		userService,
+		partnerService,
 	)
 
 	apiService := api.NewService(fmt.Sprintf(":%s", environment.Env.HttpPort), constants.ServiceName,
