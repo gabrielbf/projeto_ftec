@@ -47,12 +47,20 @@ func CreateAccount(accountService account.Service) func(c echo.Context) error {
 		}
 
 		createDTO := account.CreateDTO{
-			Email:    createAccountRequest.Email,
-			Password: createAccountRequest.Password,
-			Type:     createAccountRequest.Type,
+			Email:        createAccountRequest.Email,
+			Password:     createAccountRequest.Password,
+			Type:         createAccountRequest.Type,
+			Name:         createAccountRequest.Name,
+			PhoneNumber:  createAccountRequest.PhoneNumber,
+			Country:      createAccountRequest.Country,
+			State:        createAccountRequest.State,
+			City:         createAccountRequest.City,
+			Neighborhood: createAccountRequest.Neighborhood,
+			Street:       createAccountRequest.Street,
+			Number:       createAccountRequest.Number,
 		}
 
-		createdAccount, err := accountService.CreateAccount(c.Request().Context(), createDTO)
+		createdAccount, createdContact, createdUser, createdPartner, err := accountService.CreateAccount(c.Request().Context(), createDTO)
 		if err != nil {
 			log.Error().Interface("createAccountRequest", createAccountRequest).Msg("error on Account creation")
 			status := http.StatusInternalServerError
@@ -66,7 +74,7 @@ func CreateAccount(accountService account.Service) func(c echo.Context) error {
 
 		log.Info().Msg("retrieving created account")
 
-		createdAccountResponse.FromAccount(createdAccount)
+		createdAccountResponse.FromAccount(createdAccount, createdContact, createdUser, createdPartner, createAccountRequest.Type)
 		return c.JSON(http.StatusCreated, createdAccountResponse)
 	}
 }

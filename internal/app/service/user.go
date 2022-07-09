@@ -19,11 +19,12 @@ func NewUserService(userRepository user.Repository) user.Service {
 }
 
 func (s userServiceImpl) CreateUser(ctx context.Context, createDTO user.CreateDTO) (entity.User, error) {
-	log.Info().Msg("saving user request")
+	log.Info().Msg("saving user")
 	user := entity.User{
 		FirstName: createDTO.FirstName,
 		LastName:  createDTO.LastName,
 		AccountID: createDTO.AccountID,
+		ContactID: createDTO.ContactID,
 	}
 
 	err := s.userRepository.Create(ctx, &user)
