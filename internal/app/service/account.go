@@ -23,6 +23,7 @@ func (s accountServiceImpl) CreateAccount(ctx context.Context, createDTO account
 	account := entity.Account{
 		Email:    createDTO.Email,
 		Password: createDTO.Password,
+		Type:     createDTO.Type,
 		Status:   entity.AccountStatusEnum.Created,
 	}
 

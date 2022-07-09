@@ -49,6 +49,7 @@ func CreateAccount(accountService account.Service) func(c echo.Context) error {
 		createDTO := account.CreateDTO{
 			Email:    createAccountRequest.Email,
 			Password: createAccountRequest.Password,
+			Type:     createAccountRequest.Type,
 		}
 
 		createdAccount, err := accountService.CreateAccount(c.Request().Context(), createDTO)
