@@ -1,0 +1,3 @@
+ALTER TABLE post DROP CONSTRAINT post_primary_key;
+ALTER TABLE post DROP CONSTRAINT post_fk_pet;
+DROP TABLE post;
