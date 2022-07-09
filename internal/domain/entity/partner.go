@@ -1,10 +1,10 @@
 package entity
 
 type Partner struct {
-	id         int
-	accountId  int
-	kind       string
-	name       string
-	locationId int
-	contactId  int
+	ID         int
+	AccountID  int
+	Kind       string
+	Name       string
+	LocationID int
+	ContactID  int
 }

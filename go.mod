@@ -1,4 +1,4 @@
-module github.com/sample-project
+module github.com/ftec-project
 
 go 1.18
 

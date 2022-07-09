@@ -3,7 +3,7 @@ package response
 import (
 	"time"
 
-	"github.com/sample-project/internal/infra/database/entity"
+	"github.com/ftec-project/internal/infra/database/entity"
 	"gopkg.in/guregu/null.v4"
 )
 

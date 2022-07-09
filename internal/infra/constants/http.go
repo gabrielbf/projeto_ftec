@@ -7,7 +7,8 @@ import (
 )
 
 const (
-	SampleRessource string = "/sample"
+	SampleRessource  string = "/sample"
+	AccountRessource string = "/accounts"
 )
 
 var (
