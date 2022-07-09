@@ -13,4 +13,5 @@ type Service interface {
 type CreateDTO struct {
 	Email    string
 	Password string
+	Type     string
 }

@@ -1,5 +1,5 @@
 package constants
 
 const (
-	ServiceName = "sample-service"
+	ServiceName = "ftec-project"
 )

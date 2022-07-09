@@ -6,6 +6,9 @@ import (
 
 const (
 	created string = "CREATED"
+
+	user    string = "USER"
+	partner string = "PARTNER"
 )
 
 type accountStatusEnum struct {
@@ -16,9 +19,20 @@ var AccountStatusEnum = accountStatusEnum{
 	Created: created,
 }
 
+type accountTypeEnum struct {
+	User    string
+	Partner string
+}
+
+var AccountTypeEnum = accountTypeEnum{
+	User:    user,
+	Partner: partner,
+}
+
 type Account struct {
 	gorm.Model
 	Email    string
 	Password string
+	Type     string
 	Status   string
 }
