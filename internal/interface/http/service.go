@@ -25,6 +25,7 @@ func NewService(
 	accountService account.Service,
 	userService user.Service,
 	partnerService partner.Service,
+	locationService location.Service
 ) *serviceImpl {
 	echoAPI := echo.New()
 
@@ -33,6 +34,7 @@ func NewService(
 	handler.MakeAccountHandler(echoAPI, accountService)
 	handler.MakeUserHandler(echoAPI, userService)
 	handler.MakePartnerHandler(echoAPI, partnerService)
+	handler.MakeLocationHandler(echoAPI, locationService)
 
 	echoAPI.GET("/swagger/*", echoSwagger.WrapHandler)
 	return &serviceImpl{

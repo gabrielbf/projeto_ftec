@@ -1,15 +1,20 @@
 package entity
 
+import (
+	"gorm.io/gorm"
+)
+
 type Location struct {
-	id           int
-	country      string
-	state        string
-	city         string
-	neighborhood string
-	street       string
-	number       string
-	complement   string
-	cep          string
-	coordinates  string
-	description  string
+	gorm.Model
+	//id           int
+	Country      string
+	State        string
+	City         string
+	Neighborhood string
+	Street       string
+	Number       string
+	Complement   string
+	Cep          string
+	Coordinates  string
+	Description  string
 }
