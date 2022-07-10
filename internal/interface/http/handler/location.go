@@ -4,6 +4,8 @@ import (
 	"net/http"
 
 	"github.com/ftec-project/internal/domain/location"
+	"github.com/ftec-project/internal/interface/http/dto/request"
+	"github.com/ftec-project/internal/interface/http/dto/response"
 	"github.com/labstack/echo/v4"
 	"github.com/rs/zerolog/log"
 	"schneider.vip/problem"
@@ -18,7 +20,7 @@ func CreateLocation(locationService location.Service) func(c echo.Context) error
 		log.Info().Msg("creating location")
 
 		var createLocationRequest request.CreateLocation
-		var createdLocationResponse request.Location
+		var createdLocationResponse response.Location
 
 		if err := c.Bind(&createLocationRequest); err != nil {
 			log.Info().Interface("createLocationRequest", createLocationRequest).Msg("deserialization error")
@@ -33,16 +35,16 @@ func CreateLocation(locationService location.Service) func(c echo.Context) error
 		}
 
 		createDTO := location.CreateDTO{
-			Country: createAccountRequest.Country
-			State: createAccountRequest.State
-			City: createAccountRequest.City
-			Neighborhood: createAccountRequest.Neighborhood
-			Street: createAccountRequest.Street
-			Number: createAccountRequest.Number
-			Complement: createAccountRequest.Complement
-			Cep: createAccountRequest.Cep
-			Coordinates: createAccountRequest.Coordinates
-			Description: createAccountRequest.Description
+			Country: createLocationRequest.Country,
+			State: createLocationRequest.State,
+			City: createLocationRequest.City,
+			Neighborhood: createLocationRequest.Neighborhood,
+			Street: createLocationRequest.Street,
+			Number: createLocationRequest.Number,
+			Complement: createLocationRequest.Complement,
+			Cep: createLocationRequest.Cep,
+			Coordinates: createLocationRequest.Coordinates,
+			Description: createLocationRequest.Description,
 		}
 
 		createdLocation, err := locationService.CreateLocation(c.Request().Context(), createDTO)
@@ -59,7 +61,7 @@ func CreateLocation(locationService location.Service) func(c echo.Context) error
 
 		log.Info().Msg("retrieving created location")
 
-		createLocationResponse.FromAccount(createdLocation)
+		createdLocationResponse.FromLocation(createdLocation)
 		return c.JSON(http.StatusCreated, createdLocationResponse)
 	}
 }

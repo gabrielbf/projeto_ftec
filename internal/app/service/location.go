@@ -12,13 +12,13 @@ type locationServiceImpl struct {
 	locationRepository location.Repository
 }
 
-func NewLocationService(locationRepository location.Repository) location.service {
+func NewLocationService(locationRepository location.Repository) location.Service {
 	return &locationServiceImpl{
-		locationRepository: location.Repository,
+		locationRepository: locationRepository,
 	}
 }
 
-func (s locationServiceImpl) CrateLocation(ctx context.Context, createDTO location.CreateDTO) (entity.Location, error) {
+func (s locationServiceImpl) CreateLocation(ctx context.Context, createDTO location.CreateDTO) (entity.Location, error) {
 	log.Info().Msg("creating location")
 
 	location := entity.Location{

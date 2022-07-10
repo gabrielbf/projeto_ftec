@@ -9,6 +9,7 @@ import (
 	"github.com/ftec-project/internal/domain/account"
 	"github.com/ftec-project/internal/domain/partner"
 	"github.com/ftec-project/internal/domain/sample"
+	"github.com/ftec-project/internal/domain/location"
 	"github.com/ftec-project/internal/domain/user"
 	"github.com/ftec-project/internal/interface/http/handler"
 )
@@ -25,7 +26,7 @@ func NewService(
 	accountService account.Service,
 	userService user.Service,
 	partnerService partner.Service,
-	locationService location.Service
+	locationService location.Service,
 ) *serviceImpl {
 	echoAPI := echo.New()
 

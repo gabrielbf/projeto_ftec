@@ -83,6 +83,7 @@ func Init(rootdir string) {
 		accountService,
 		userService,
 		partnerService,
+		locationService,
 	)
 
 	go func() {
